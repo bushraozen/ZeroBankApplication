@@ -21,17 +21,20 @@ public class Login_StepDefinitions {
 
     @When("user click on sign in button")
     public void user_click_on_sign_in_button() {
+
         loginPage.mainLogin.click();
     }
 
     @Then("user enters username {string}")
     public void user_enters_username(String login) {
+
         loginPage.login.sendKeys(login);
     }
 
 
     @Then("user enters password {string}")
     public void user_enters_password(String password) {
+
         loginPage.password.sendKeys(password);
     }
 

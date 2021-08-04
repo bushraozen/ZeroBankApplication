@@ -9,6 +9,7 @@ public abstract class ZeroModulesPage {
 
 
     public ZeroModulesPage() {
+
         PageFactory.initElements(Driver.getDriver(),this);
     }
 

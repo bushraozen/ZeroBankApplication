@@ -1,6 +1,6 @@
 Feature: Login the application
 
-
+  @login
   Scenario: Login as a user
     Given user on the main page
     When user click on sign in button
@@ -10,7 +10,7 @@ Feature: Login the application
     And user click the advanced and proceed button
     Then user able to see the "Account Summary" page
 
-  @wip
+  @wrongLogin
     Scenario: Login with wrong credentials
       Given user on the main page
       When user click on sign in button

@@ -28,7 +28,7 @@ public class AccountActivity_StepDefinitions {
         BrowserUtil.wait(3);
         String actual = Driver.getDriver().getTitle();
 
-        Assert.assertEquals(actual, expected);
+        Assert.assertEquals(expected,actual);
 
     }
 

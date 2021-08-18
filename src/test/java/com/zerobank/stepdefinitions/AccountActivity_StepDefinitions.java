@@ -10,6 +10,7 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AccountActivity_StepDefinitions {
@@ -19,7 +20,7 @@ public class AccountActivity_StepDefinitions {
     @Given("user click on {string}")
     public void userClickOn(String expected) {
 
-        accountActivityPage.module(expected);
+        accountActivityPage.accountActivity.click();
     }
 
     @When("user should be able to see the title {string}")
@@ -36,7 +37,7 @@ public class AccountActivity_StepDefinitions {
     public void userOnDropDownDefaultOptionShouldBe(String expected) {
 
        String actual = accountActivityPage.selectedOption();
-       Assert.assertEquals(actual, expected);
+       Assert.assertEquals(expected, actual);
 
 
     }
@@ -44,18 +45,36 @@ public class AccountActivity_StepDefinitions {
     @Then("drop down should have the following options")
     public void drop_down_should_have_the_following_options(List<String> expected) {
 
-        for(WebElement each : accountActivityPage.selectedOptions()){
-           Assert.assertEquals(each.getText(), expected);
+        List<String> allName = new ArrayList<>();
+
+        for (WebElement each: accountActivityPage.selectedOptions()){
+            allName.add(each.getText());
         }
+
+        for (int i = 0; i < allName.size(); i++) {
+            Assert.assertEquals(allName.get(i), expected.get(i));
+
+        }
+
+
+        
 
 
     }
     @Then("Transactions table should have column names")
     public void transactions_table_should_have_column_names(List<String> expected) {
 
-        for(WebElement each : accountActivityPage.accountColumnNames){
-            Assert.assertEquals(each.getText(), expected);
+        List<String> allName = new ArrayList<>();
+
+        for (WebElement each: accountActivityPage.accountColumnNames){
+            allName.add(each.getText());
         }
+
+        for (int i = 0; i < allName.size(); i++) {
+            Assert.assertEquals(allName.get(i), expected.get(i));
+
+        }
+
     }
 
 

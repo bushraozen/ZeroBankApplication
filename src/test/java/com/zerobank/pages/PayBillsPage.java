@@ -30,14 +30,14 @@ public class PayBillsPage {
     public WebElement date;
 
 
-    @FindBy(xpath = "//input[@id='sp_description'")
+    @FindBy(xpath = "//input[@id='sp_description']")
     public WebElement description;
 
 
     @FindBy(xpath = "//input[@id='pay_saved_payees']")
     public WebElement payButton;
 
-    @FindBy(xpath = "//span[. =The payment was successfully submitted.]")
+    @FindBy(xpath = "//span[@title='$ 200 payed to payee sprint']")
     public WebElement successfully;
 
 
@@ -49,8 +49,8 @@ public class PayBillsPage {
 
     public  void select2(){
 
-        Select select = new Select(payee);
-        select.selectByValue("1");
+        Select select = new Select(account);
+        select.selectByVisibleText("Savings");
     }
 
 

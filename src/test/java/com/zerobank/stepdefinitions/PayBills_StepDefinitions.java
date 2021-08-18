@@ -1,6 +1,7 @@
 package com.zerobank.stepdefinitions;
 
 import com.zerobank.pages.PayBillsPage;
+import com.zerobank.utilities.BrowserUtil;
 import com.zerobank.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -32,13 +33,14 @@ public class PayBills_StepDefinitions {
         payBillsPage.amount.sendKeys("200");
         payBillsPage.date.sendKeys("2021-08-09");
         payBillsPage.description.sendKeys("For credit");
+        payBillsPage.payButton.click();
+
 
     }
     @Then("user can see the payment was successfully submitted")
     public void userCanSeeThePaymentWasSuccessfullySubmitted() {
-
-
-        Assert.assertEquals("The payment was successfully submitted.", payBillsPage.successfully);
+        BrowserUtil.wait(3);
+        Assert.assertEquals("The payment was successfully submitted.", payBillsPage.successfully.getText());
     }
 
 

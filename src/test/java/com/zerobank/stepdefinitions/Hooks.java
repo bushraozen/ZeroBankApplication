@@ -10,7 +10,7 @@ import io.cucumber.java.*;
 
 public class Hooks {
     //Import from io.cucumber.java not from junit
-    @Before("@accountActivity")
+    @Before("@wip")
     public void setupLoginScenario() {
         LoginPage loginPage = new LoginPage();
         String url = ConfigurationReader.getProperty("zeroBankUrl");
